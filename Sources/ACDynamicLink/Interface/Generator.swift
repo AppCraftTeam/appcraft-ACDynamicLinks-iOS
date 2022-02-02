@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol Generator {
+public protocol Generator {
     
     var data: GenerationData { get }
     
