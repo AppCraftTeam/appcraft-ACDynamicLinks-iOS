@@ -7,7 +7,8 @@
 
 import Foundation
 
-public protocol Navigatable {
+public protocol NavigatablePath {
     var path: String { get }
     var id: String? { get }
 }
+
