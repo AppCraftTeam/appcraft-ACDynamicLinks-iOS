@@ -14,27 +14,18 @@ protocol Navigatable {
     var id: String? { get }
 }
 
-protocol GeneratorDelegate: AnyObject {
-    func didGenerate(_ generator: Generator, url: URL?)
-}
-
 class Generator: NSObject {
     
-    weak var delegate: GeneratorDelegate?
-    
-    var linkUrl = "https://www.tradeunion.com/"
-    var linkPrefix = "https://tradeunion.page.link"
+    var urlString = "https://www.tradeunion.com/"
+    var domainURIPrefix = "https://tradeunion.page.link"
     
     var iOSBundle = "com.tradeunion.gaz"
     var androidBundle = "ru.tradeunion.privilege"
     
     var appStoreID = "1452471100"
     
-    func generate(path: Navigatable, isShort: Bool) {
+    func generate(path: Navigatable, isShort: Bool, completion: @escaping (URL?) -> Void) {
         guard let link = url(for: path) else { return }
-        print(link)
-        let domainURIPrefix = linkPrefix
-        
         let linkBuilder = DynamicLinkComponents(link: link, domainURIPrefix: domainURIPrefix)
         linkBuilder?.iOSParameters = DynamicLinkIOSParameters(bundleID: iOSBundle)
         linkBuilder?.iOSParameters?.appStoreID = appStoreID
@@ -42,10 +33,10 @@ class Generator: NSObject {
 
         if isShort {
             linkBuilder?.shorten(completion: { (url, _, _) in
-                self.delegate?.didGenerate(self, url: url)
+                completion(url)
             })
         } else {
-            self.delegate?.didGenerate(self, url: linkBuilder?.url)
+            completion(linkBuilder?.url)
         }
     }
 }
@@ -54,6 +45,6 @@ class Generator: NSObject {
 private extension Generator {
     
     func url(for path: Navigatable) -> URL? {
-        URL(string: linkUrl + path.path + (path.id ?? ""))
+        URL(string: urlString + path.path + (path.id ?? ""))
     }
 }
