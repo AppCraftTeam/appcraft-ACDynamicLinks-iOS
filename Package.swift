@@ -23,7 +23,7 @@ let package = Package(
         .target(
             name: "ACDynamicLink",
             dependencies: [
-            "Firebase"
+                .product(name: "FirebaseAuth", package: "Firebase")
             ]),
         .testTarget(
             name: "ACDynamicLinkTests",
