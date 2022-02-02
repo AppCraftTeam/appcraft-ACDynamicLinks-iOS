@@ -11,5 +11,5 @@ public protocol Generator {
     
     var data: GenerationData { get }
     
-    func generate(path: Navigatable, isShort: Bool, completion: @escaping (URL?) -> Void)
+    func generate(path: NavigatablePath, isShort: Bool, completion: @escaping (URL?) -> Void)
 }
