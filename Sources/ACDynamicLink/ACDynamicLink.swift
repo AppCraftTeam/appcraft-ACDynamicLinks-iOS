@@ -2,6 +2,11 @@
 
 public struct ACDynamicLink {
     
-    public init() {
+    var generator: Generator
+    
+    public init(data: GenerationData) {
+        self.generator = FBGenerator(data: data)
     }
+    
+    
 }

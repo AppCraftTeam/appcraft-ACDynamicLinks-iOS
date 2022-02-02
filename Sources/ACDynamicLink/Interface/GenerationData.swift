@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol GenerationData {
+public protocol GenerationData {
     var urlString: String { get }
     var domainURIPrefix: String { get }
     var iOSBundle: String { get }
