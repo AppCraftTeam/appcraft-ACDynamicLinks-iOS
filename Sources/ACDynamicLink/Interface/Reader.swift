@@ -8,5 +8,6 @@
 import Foundation
 
 public protocol Reader {
-    func getPath(from url: URL) -> NavigatablePath?
+    func readFromURL(_ url: URL, completion: CompletionHandler) -> Bool
+    func readFromUserActivity(_ activity: NSUserActivity, completion: @escaping CompletionHandler) -> Bool
 }
