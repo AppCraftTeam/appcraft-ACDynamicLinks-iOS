@@ -9,7 +9,7 @@ import Foundation
 
 public protocol Generator {
     
-    var data: GenerationData { get }
+    var data: GenerationDataProvider { get }
     
     func generate(path: NavigatablePath, isShort: Bool, completion: @escaping (URL?) -> Void)
 }

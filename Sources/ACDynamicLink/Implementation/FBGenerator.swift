@@ -11,7 +11,7 @@ import Firebase
 
 struct FBGenerator: Generator {
     
-    private(set) var data: GenerationData
+    private(set) var data: GenerationDataProvider
     
     func generate(path: NavigatablePath, isShort: Bool = true, completion: @escaping (URL?) -> Void) {
         guard let link = url(for: path) else { return }
