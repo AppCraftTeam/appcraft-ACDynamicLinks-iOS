@@ -7,7 +7,7 @@
 
 import Foundation
 
-public protocol GenerationData {
+public protocol GenerationDataProvider {
     var urlString: String { get }
     var domainURIPrefix: String { get }
     var iOSBundle: String { get }
@@ -15,4 +15,12 @@ public protocol GenerationData {
     // optionals
     var appStoreID: String? { get }
     var androidBundle: String? { get }
+}
+
+public struct GenerationData: GenerationDataProvider {
+    public let urlString: String
+    public let domainURIPrefix: String
+    public let iOSBundle: String
+    public let appStoreID: String?
+    public let androidBundle: String?
 }
