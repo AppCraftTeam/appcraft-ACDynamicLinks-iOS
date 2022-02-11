@@ -7,8 +7,6 @@ public struct ACDynamicLink {
     
     public init(data: GenerationData) {
         self.generator = FBGenerator(data: data)
-        self.reader = FBReader(data: data)
+        self.reader = FBReader()
     }
-    
-    
 }
