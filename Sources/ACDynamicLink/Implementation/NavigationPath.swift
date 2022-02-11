@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct NavigationPath: NavigatablePath {
+public struct NavigationPath: NavigatablePath {
     
     public var path: String
     public var id: String?
 }
 
-extension NavigationPath {
+public extension NavigationPath {
     
     init(urlString: String) {
         let components = urlString.components(separatedBy: "id=")
