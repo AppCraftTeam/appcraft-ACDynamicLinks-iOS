@@ -18,9 +18,18 @@ public protocol GenerationDataProvider {
 }
 
 public struct GenerationData: GenerationDataProvider {
+    
     public let urlString: String
     public let domainURIPrefix: String
     public let iOSBundle: String
     public let appStoreID: String?
     public let androidBundle: String?
+    
+    public init(urlString: String, domainURIPrefix: String, iOSBundle: String, appStoreID: String?, androidBundle: String?) {
+        self.urlString = urlString
+        self.domainURIPrefix = domainURIPrefix
+        self.iOSBundle = iOSBundle
+        self.appStoreID = appStoreID
+        self.androidBundle = androidBundle
+    }
 }
