@@ -2,10 +2,10 @@ import Firebase
 
 public struct ACDynamicLink {
     
-    private(set) var generator: Generator
-    private(set) var reader: Reader
+    private(set) public var generator: Generator
+    private(set) public var reader: Reader
     
-    var paths = [NavigatablePath]()
+    public var paths = [NavigatablePath]()
     
     public init(generationData: GenerationDataProvider, paths: [NavigatablePath]) {
         self.generator = FBGenerator(data: generationData)
