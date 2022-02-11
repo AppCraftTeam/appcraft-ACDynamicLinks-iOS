@@ -1,9 +1,8 @@
 //
-//  DynamicLinkService.swift
-//  Trade Union
+//  FBGenerator.swift
 //
-//  Created by  Кирилл on 2/19/19.
-//  Copyright © 2019 AppCraft. All rights reserved.
+//
+//  Created by Анатолий Руденко on 13.01.2022.
 //
 
 import Foundation
@@ -11,7 +10,11 @@ import Firebase
 
 struct FBGenerator: Generator {
     
-    private(set) var data: GenerationDataProvider
+    public init(data: GenerationDataProvider) {
+        self.data = data
+    }
+    
+    private var data: GenerationDataProvider
     
     func generate(path: NavigatablePath, isShort: Bool = true, completion: @escaping (URL?) -> Void) {
         guard let link = url(for: path) else { return }

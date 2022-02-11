@@ -1,6 +1,6 @@
 //
 //  FBReader.swift
-//  Trade Union
+//
 //
 //  Created by Анатолий Руденко on 13.01.2022.
 //
