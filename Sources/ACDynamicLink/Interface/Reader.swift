@@ -8,5 +8,5 @@
 import Foundation
 
 public protocol Reader {
-    func getPath(from url: URL) -> NavigationPath?
+    func getPath(from url: URL) -> NavigatablePath?
 }
