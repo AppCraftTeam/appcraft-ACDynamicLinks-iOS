@@ -2,9 +2,6 @@ import Firebase
 
 public struct ACDynamicLink: Generator, Reader {
     
-    // MARK: - Props
-    public var paths = [NavigatablePath]()
-    
     // MARK: - Methods
     public func generate(path: NavigatablePath, isShort: Bool, completion: @escaping (URL?) -> Void) {
         generator.generate(path: path, isShort: isShort, completion: completion)
@@ -19,10 +16,9 @@ public struct ACDynamicLink: Generator, Reader {
     }
     
     // MARK: - Init
-    public init(generationData: GenerationDataProvider, paths: [NavigatablePath]) {
+    public init(generationData: GenerationDataProvider) {
         self.generator = FBGenerator(data: generationData)
         self.reader = FBReader()
-        self.paths = paths
     }
     
     // MARK: - Private Props
