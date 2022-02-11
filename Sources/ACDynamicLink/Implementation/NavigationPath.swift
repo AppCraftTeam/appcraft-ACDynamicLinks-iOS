@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct NavigationPath: NavigatablePath {
+struct NavigationPath: NavigatablePath {
     
     public var path: String
     public var id: String?

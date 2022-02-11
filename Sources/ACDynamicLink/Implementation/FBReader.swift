@@ -10,11 +10,7 @@ import Firebase
 
 struct FBReader: Reader {
     
-    var data: GenerationData
-    
-    typealias CompletionHandler = (_ path: NavigatablePath?) -> Void
-    
-    func readFromUserActivity(_ activity: NSUserActivity, completion: @escaping CompletionHandler) -> Bool {
+    func readFromUserActivity(_ activity: NSUserActivity, completion: @escaping PathCompletionHandler) -> Bool {
         guard let webPageURL = activity.webpageURL else { return false }
         let handled = DynamicLinks.dynamicLinks().handleUniversalLink(webPageURL) { (dynamicLink, _) in
             guard let dynamicLink = dynamicLink?.url else { return }
@@ -23,7 +19,7 @@ struct FBReader: Reader {
         return handled
     }
     
-    func readFromURL(_ url: URL, completion: CompletionHandler) -> Bool {
+    func readFromURL(_ url: URL, completion: PathCompletionHandler) -> Bool {
         guard let dynamicLink = DynamicLinks.dynamicLinks().dynamicLink(fromCustomSchemeURL: url),
               let dynamicLinkURL = dynamicLink.url
         else { return false }

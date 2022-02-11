@@ -7,7 +7,9 @@
 
 import Foundation
 
+public typealias PathCompletionHandler = (_ path: NavigatablePath?) -> Void
+
 public protocol Reader {
-    func readFromURL(_ url: URL, completion: CompletionHandler) -> Bool
-    func readFromUserActivity(_ activity: NSUserActivity, completion: @escaping CompletionHandler) -> Bool
+    func readFromURL(_ url: URL, completion: PathCompletionHandler) -> Bool
+    func readFromUserActivity(_ activity: NSUserActivity, completion: @escaping PathCompletionHandler) -> Bool
 }
