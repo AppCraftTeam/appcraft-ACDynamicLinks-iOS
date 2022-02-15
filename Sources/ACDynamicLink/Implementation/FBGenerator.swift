@@ -16,7 +16,7 @@ struct FBGenerator: Generator {
     
     private var data: GenerationDataProvider
     
-    func generate(path: NavigatablePath, isShort: Bool = true, completion: @escaping (URL?) -> Void) {
+    func generate(path: NavigatablePath, completion: @escaping (URL?) -> Void) {
         guard let link = url(for: path) else { return }
         let linkBuilder = DynamicLinkComponents(link: link, domainURIPrefix: data.domainURLPrefix)
         linkBuilder?.iOSParameters = DynamicLinkIOSParameters(bundleID: data.iOSBundle)
@@ -24,14 +24,9 @@ struct FBGenerator: Generator {
         if let androidBundle = data.androidBundle {
             linkBuilder?.androidParameters = DynamicLinkAndroidParameters(packageName: androidBundle)
         }
-
-        if isShort {
-            linkBuilder?.shorten(completion: { (url, _, _) in
-                completion(url)
-            })
-        } else {
-            completion(linkBuilder?.url)
-        }
+        linkBuilder?.shorten(completion: { (url, _, _) in
+            completion(url)
+        })
     }
 }
 
