@@ -15,6 +15,14 @@ public struct NavigationPath: NavigatablePath {
 
 public extension NavigationPath {
     
+    init(path: String, id: String) {
+        self.path = path
+        self.id = id
+    }
+}
+
+public extension NavigationPath {
+    
     init(urlString: String) {
         let components = urlString.components(separatedBy: "id=")
         if let id = components.last {

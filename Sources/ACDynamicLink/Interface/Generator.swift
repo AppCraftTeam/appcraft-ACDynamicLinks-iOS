@@ -9,5 +9,5 @@ import Foundation
 
 public protocol Generator {
     
-    func generate(path: NavigatablePath, isShort: Bool, completion: @escaping (URL?) -> Void)
+    func generate(path: NavigatablePath, completion: @escaping (URL?) -> Void)
 }
