@@ -19,6 +19,7 @@ public struct ACDynamicLink: Generator, Reader {
     public init(generationData: GenerationDataProvider) {
         self.generator = FBGenerator(data: generationData)
         self.reader = FBReader()
+        FirebaseApp.configure()
     }
     
     // MARK: - Private Props
