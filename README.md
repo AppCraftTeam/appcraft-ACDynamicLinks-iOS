@@ -1,3 +1,3 @@
 # ACDynamicLink
 
-A description of this package.
+Handy dynamic links manager based of Firebase Dynamic Links.
