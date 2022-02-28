@@ -15,10 +15,19 @@ public struct ACDynamicLink: Generator, Reader {
         reader.readFromUserActivity(activity, completion: completion)
     }
     
+    public func getPathExtension(for navigatablePath: NavigatablePath, among pathExtensions: [String]) -> String? {
+        let prefix = generationData.urlStringPrefix
+        guard let pathExtension = navigatablePath.path.components(separatedBy: prefix).last,
+              let pathExtension = pathExtensions.first(where: { pathExtension == $0 })
+        else { return nil }
+        return pathExtension
+    }
+    
     // MARK: - Init
     public init(generationData: GenerationDataProvider) {
         self.generator = FBGenerator(data: generationData)
         self.reader = FBReader()
+        self.generationData = generationData
         if FirebaseApp.app() == nil {
             FirebaseApp.configure()
         }
@@ -28,4 +37,5 @@ public struct ACDynamicLink: Generator, Reader {
     // MARK: - Private Props
     private var generator: Generator
     private var reader: Reader
+    private var generationData: GenerationDataProvider
 }

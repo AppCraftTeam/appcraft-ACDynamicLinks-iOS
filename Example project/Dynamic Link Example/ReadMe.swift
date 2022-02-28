@@ -16,7 +16,7 @@ enum AppPath: String {
 }
 
 /// 2. Ethier create an instance of a custom object conforming to GenerationDataProvider protocol, or simply create an instance of GenerationData:
-let generationData = GenerationData(urlString: "https://www.mywebsite.com/", // fallback URL
+let generationData = GenerationData(urlStringPrefix: "https://www.mywebsite.com/", // fallback URL
                                     domainURLPrefix: "https://myapp.page.link", // from firebase console
                                     iOSBundle: Bundle.main.bundleIdentifier ?? "com.myiosapp.isnice",
                                     appStoreID: "1337133713", // might not work without it
