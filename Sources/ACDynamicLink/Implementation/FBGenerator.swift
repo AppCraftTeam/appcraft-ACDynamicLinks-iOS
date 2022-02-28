@@ -34,7 +34,7 @@ struct FBGenerator: Generator {
 private extension FBGenerator {
     
     func url(for path: NavigatablePath) -> URL? {
-        let pathString = data.urlString + path.path
+        let pathString = data.urlStringPrefix + path.path
         guard let id = path.id else {
             return URL(string: pathString)
         }

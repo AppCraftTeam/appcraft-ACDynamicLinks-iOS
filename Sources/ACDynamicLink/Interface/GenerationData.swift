@@ -8,7 +8,7 @@
 import Foundation
 
 public protocol GenerationDataProvider {
-    var urlString: String { get }
+    var urlStringPrefix: String { get }
     var domainURLPrefix: String { get }
     var iOSBundle: String { get }
     
@@ -19,14 +19,14 @@ public protocol GenerationDataProvider {
 
 public struct GenerationData: GenerationDataProvider {
     
-    public let urlString: String
+    public let urlStringPrefix: String
     public let domainURLPrefix: String
     public let iOSBundle: String
     public let appStoreID: String?
     public let androidBundle: String?
     
     public init(urlString: String, domainURLPrefix: String, iOSBundle: String, appStoreID: String?, androidBundle: String?) {
-        self.urlString = urlString
+        self.urlStringPrefix = urlString
         self.domainURLPrefix = domainURLPrefix
         self.iOSBundle = iOSBundle
         self.appStoreID = appStoreID
