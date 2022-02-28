@@ -32,8 +32,7 @@ struct FBReader: Reader {
 private extension FBReader {
     
     func getPath(from url: URL) -> NavigatablePath? {
-        guard let dynamicLinkURL = DynamicLinks.dynamicLinks().dynamicLink(fromCustomSchemeURL: url)?.url else { return nil }
-        let urlString = dynamicLinkURL.absoluteString
+        let urlString = url.absoluteString
         let navPath = NavigationPath(urlString: urlString)
         return navPath
     }
