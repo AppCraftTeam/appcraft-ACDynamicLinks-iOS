@@ -25,8 +25,8 @@ public struct GenerationData: GenerationDataProvider {
     public let appStoreID: String?
     public let androidBundle: String?
     
-    public init(urlString: String, domainURLPrefix: String, iOSBundle: String, appStoreID: String?, androidBundle: String?) {
-        self.urlStringPrefix = urlString
+    public init(urlStringPrefix: String, domainURLPrefix: String, iOSBundle: String, appStoreID: String?, androidBundle: String?) {
+        self.urlStringPrefix = urlStringPrefix
         self.domainURLPrefix = domainURLPrefix
         self.iOSBundle = iOSBundle
         self.appStoreID = appStoreID

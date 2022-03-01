@@ -8,8 +8,8 @@
 import UIKit
 import ACDynamicLink
 
-/// 1. Create your own AppPath enum, something like:
-enum AppPath: String {
+/// 1. Create your own PathType enum, something like:
+enum PathType: String {
     case mainScreen
     case settingsScreen
     case unknown
@@ -45,4 +45,5 @@ func application(_ application: UIApplication, continue userActivity: NSUserActi
     return canOpenURL
 }
 
-/// 5. To create a link: call dynamicLink.generate(path: NavigatablePath, completion: @escaping (URL?) -> Void). Example can be found in ViewController.swift
+/// 5. To create a link: call dynamicLink.generate(pathSuffix: String, id: String?, completion: @escaping (URL?) -> Void).
+/// Example can be found in ViewController.swift

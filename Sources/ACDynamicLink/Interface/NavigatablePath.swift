@@ -9,7 +9,7 @@ import Foundation
 
 public protocol NavigatablePath {
     var path: String { get }
-    var pathPreffix: String { get }
+    var pathPrefix: String { get }
     var pathSuffix: String { get }
     var id: String? { get }
 }

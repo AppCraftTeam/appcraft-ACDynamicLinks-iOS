@@ -382,7 +382,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AppCraftTeam/appcraft-ACDynamicLinks-iOS";
 			requirement = {
-				branch = develop;
+				branch = feature/improvements;
 				kind = branch;
 			};
 		};
