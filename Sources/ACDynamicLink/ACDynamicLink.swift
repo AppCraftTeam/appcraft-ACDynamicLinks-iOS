@@ -15,13 +15,13 @@ public struct ACDynamicLink: Generator, Reader {
         reader.readFromUserActivity(activity, completion: completion)
     }
     
-    public func getPathExtension(for navigatablePath: NavigatablePath, among pathExtensions: [String]) -> String? {
-        let prefix = generationData.urlStringPrefix
-        guard let pathExtension = navigatablePath.pathSuffix.components(separatedBy: prefix).last,
-              let pathExtension = pathExtensions.first(where: { pathExtension == $0 })
-        else { return nil }
-        return pathExtension
-    }
+//    public func getPathExtension(for navigatablePath: NavigatablePath, among pathExtensions: [String]) -> String? {
+//        let prefix = generationData.urlStringPrefix
+//        guard let pathExtension = navigatablePath.pathSuffix.components(separatedBy: prefix).last,
+//              let pathExtension = pathExtensions.first(where: { pathExtension == $0 })
+//        else { return nil }
+//        return pathExtension
+//    }
     
     // MARK: - Init
     public init(generationData: GenerationDataProvider) {
