@@ -32,6 +32,8 @@ class Coordinator {
 extension AppPath {
     
     init(navigatablePath: NavigatablePath?) {
-        self = .init(rawValue: navigatablePath?.path ?? "") ?? .unknown
+        let pathExtension = AppDeeplinking.main.manager.getPathExtension(for: navigatablePath, among: DynamicLinkType.allCases.map { $0.rawValue }) ?? ""
+        self.type = DynamicLinkType(rawValue: pathExtension) ?? .unknown
+        self.id = navigatablePath.id
     }
 }
