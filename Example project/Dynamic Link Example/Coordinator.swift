@@ -11,6 +11,7 @@ import ACDynamicLink
 class Coordinator {
     
     static func handleNavPath(_ navPath: NavigatablePath?) {
+        guard let navPath = navPath else { return }
         let appNavPath = AppNavPath(navigatablePath: navPath)
         
         guard appNavPath.type != .unknown else { return }
@@ -32,8 +33,8 @@ struct AppNavPath {
     let type: PathType
     let id: String?
     
-    init(navigatablePath: NavigatablePath?) {
-        self.type = PathType(rawValue: navigatablePath?.pathSuffix) ?? .unknown
+    init(navigatablePath: NavigatablePath) {
+        self.type = PathType(rawValue: navigatablePath.pathSuffix) ?? .unknown
         self.id = navigatablePath.id
     }
 }

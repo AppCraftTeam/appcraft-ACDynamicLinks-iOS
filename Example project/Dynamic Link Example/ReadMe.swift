@@ -15,7 +15,7 @@ enum PathType: String {
     case unknown
 }
 
-/// 2. Ethier create an instance of a custom object conforming to GenerationDataProvider protocol, or simply create an instance of GenerationData:
+/// 2. Create an instance of GenerationData: GenerationDataProvider
 let generationData = GenerationData(urlStringPrefix: "https://www.mywebsite.com/", // fallback URL
                                     domainURLPrefix: "https://myapp.page.link", // from firebase console
                                     iOSBundle: Bundle.main.bundleIdentifier ?? "com.myiosapp.isnice",
@@ -24,8 +24,10 @@ let generationData = GenerationData(urlStringPrefix: "https://www.mywebsite.com/
 
 /// 3. Initialize ACDynamicLink  in AppDleegate's didFinishLaunchingWithOptions and store its reference:
 ///* dynamicLink = ACDynamicLink(generationData: generationData)
+///
 
-/// 4. Implement AppDelegate's methods to open dynamic links
+/// 4. To receive a link:
+/// Implement AppDelegate's methods to open dynamic links
 /// func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool
 /// and
 /// func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool
@@ -45,5 +47,6 @@ func application(_ application: UIApplication, continue userActivity: NSUserActi
     return canOpenURL
 }
 
-/// 5. To create a link: call dynamicLink.generate(pathSuffix: String, id: String?, completion: @escaping (URL?) -> Void).
+/// 5. To create a link:
+/// call dynamicLink.generate(pathSuffix: String, id: String?, completion: @escaping (URL?) -> Void).
 /// Example can be found in ViewController.swift
