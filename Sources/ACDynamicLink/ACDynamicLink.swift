@@ -3,8 +3,8 @@ import Firebase
 public struct ACDynamicLink: Generator, Reader {
     
     // MARK: - Methods
-    public func generate(path: NavigatablePath, completion: @escaping (URL?) -> Void) {
-        generator.generate(path: path, completion: completion)
+    public func generate(pathSuffix: String, id: String?, completion: @escaping (URL?) -> Void) {
+        generator.generate(pathSuffix: pathSuffix, id: id, completion: completion)
     }
     
     public func readFromURL(_ url: URL, completion: (NavigatablePath?) -> Void) -> Bool {
@@ -18,7 +18,7 @@ public struct ACDynamicLink: Generator, Reader {
     // MARK: - Init
     public init(generationData: GenerationDataProvider) {
         self.generator = FBGenerator(data: generationData)
-        self.reader = FBReader()
+        self.reader = FBReader(pathPrefix: generationData.urlStringPrefix)
         if FirebaseApp.app() == nil {
             FirebaseApp.configure()
         }

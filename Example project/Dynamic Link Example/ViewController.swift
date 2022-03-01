@@ -11,9 +11,8 @@ import ACDynamicLink
 class ViewController: UIViewController {
     
     // MARK: - Dynamic Link
-    func generateLink(path: AppPath, id: String) {
-        let destination = NavigationPath(path: path.rawValue, id: id)
-        dynamicLink.generate(path: destination) { [weak self] url in
+    func generateLink(path: AppNavPath) {
+        dynamicLink.generate(pathSuffix: path.type.rawValue, id: path.id) { [weak self] url in
             
             // example of sharing a link
             guard let url = url else { return }

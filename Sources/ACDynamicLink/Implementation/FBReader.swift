@@ -10,6 +10,12 @@ import Firebase
 
 struct FBReader: Reader {
     
+    private var pathPrefix: String
+    
+    init(pathPrefix: String) {
+        self.pathPrefix = pathPrefix
+    }
+    
     func readFromUserActivity(_ activity: NSUserActivity, completion: @escaping PathCompletionHandler) -> Bool {
         guard let webPageURL = activity.webpageURL else { return false }
         let handled = DynamicLinks.dynamicLinks().handleUniversalLink(webPageURL) { (dynamicLink, _) in
@@ -32,9 +38,8 @@ struct FBReader: Reader {
 private extension FBReader {
     
     func getPath(from url: URL) -> NavigatablePath? {
-        guard let dynamicLinkURL = DynamicLinks.dynamicLinks().dynamicLink(fromCustomSchemeURL: url)?.url else { return nil }
-        let urlString = dynamicLinkURL.absoluteString
-        let navPath = NavigationPath(urlString: urlString)
+        let urlString = url.absoluteString
+        let navPath = NavigationPath(urlString: urlString, pathPrefix: pathPrefix)
         return navPath
     }
 }

@@ -8,15 +8,15 @@
 import UIKit
 import ACDynamicLink
 
-/// 1. Create your own AppPath enum, something like:
-enum AppPath: String {
+/// 1. Create your own PathType enum, something like:
+enum PathType: String {
     case mainScreen
     case settingsScreen
     case unknown
 }
 
-/// 2. Ethier create an instance of a custom object conforming to GenerationDataProvider protocol, or simply create an instance of GenerationData:
-let generationData = GenerationData(urlString: "https://www.mywebsite.com/", // fallback URL
+/// 2. Create an instance of GenerationData: GenerationDataProvider
+let generationData = GenerationData(urlStringPrefix: "https://www.mywebsite.com/", // fallback URL
                                     domainURLPrefix: "https://myapp.page.link", // from firebase console
                                     iOSBundle: Bundle.main.bundleIdentifier ?? "com.myiosapp.isnice",
                                     appStoreID: "1337133713", // might not work without it
@@ -24,8 +24,10 @@ let generationData = GenerationData(urlString: "https://www.mywebsite.com/", // 
 
 /// 3. Initialize ACDynamicLink  in AppDleegate's didFinishLaunchingWithOptions and store its reference:
 ///* dynamicLink = ACDynamicLink(generationData: generationData)
+///
 
-/// 4. Implement AppDelegate's methods to open dynamic links
+/// 4. To receive a link:
+/// Implement AppDelegate's methods to open dynamic links
 /// func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool
 /// and
 /// func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool
@@ -45,4 +47,6 @@ func application(_ application: UIApplication, continue userActivity: NSUserActi
     return canOpenURL
 }
 
-/// 5. To create a link: call dynamicLink.generate(path: NavigatablePath, completion: @escaping (URL?) -> Void). Example can be found in ViewController.swift
+/// 5. To create a link:
+/// call dynamicLink.generate(pathSuffix: String, id: String?, completion: @escaping (URL?) -> Void).
+/// Example can be found in ViewController.swift
