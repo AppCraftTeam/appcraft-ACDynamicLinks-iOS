@@ -19,7 +19,6 @@ public struct ACDynamicLink: Generator, Reader {
     public init(generationData: GenerationDataProvider) {
         self.generator = FBGenerator(data: generationData)
         self.reader = FBReader(pathPreffix: generationData.urlStringPrefix)
-        self.generationData = generationData
         if FirebaseApp.app() == nil {
             FirebaseApp.configure()
         }
@@ -29,5 +28,4 @@ public struct ACDynamicLink: Generator, Reader {
     // MARK: - Private Props
     private var generator: Generator
     private var reader: Reader
-    private var generationData: GenerationDataProvider
 }
