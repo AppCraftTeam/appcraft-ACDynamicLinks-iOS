@@ -16,8 +16,8 @@ struct FBGenerator: Generator {
     
     private var data: GenerationDataProvider
     
-    func generate(path: NavigatablePath, completion: @escaping (URL?) -> Void) {
-        guard let link = url(for: path) else { return }
+    func generate(pathSuffix: String, id: String?, completion: @escaping (URL?) -> Void) {
+        guard let link = generateURL(pathSuffix: pathSuffix, id: id) else { return }
         let linkBuilder = DynamicLinkComponents(link: link, domainURIPrefix: data.domainURLPrefix)
         linkBuilder?.iOSParameters = DynamicLinkIOSParameters(bundleID: data.iOSBundle)
         linkBuilder?.iOSParameters?.appStoreID = data.appStoreID
@@ -33,9 +33,9 @@ struct FBGenerator: Generator {
 // MARK: - Supporting methods
 private extension FBGenerator {
     
-    func url(for path: NavigatablePath) -> URL? {
-        let pathString = data.urlStringPrefix + path.pathSuffix
-        guard let id = path.id else {
+    func generateURL(pathSuffix: String, id: String?) -> URL? {
+        let pathString = data.urlStringPrefix + pathSuffix
+        guard let id = id else {
             return URL(string: pathString)
         }
        return URL(string: pathString + "id=" + id)
