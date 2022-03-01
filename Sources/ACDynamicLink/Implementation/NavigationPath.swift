@@ -10,30 +10,30 @@ import Foundation
 public struct NavigationPath: NavigatablePath {
     
     public var path: String
-    public var pathPreffix: String
+    public var pathPrefix: String
     public var pathSuffix: String
     public var id: String?
 }
 
 public extension NavigationPath {
     
-    init(pathPreffix: String, pathSuffix: String, id: String) {
-        self.pathPreffix = pathPreffix
+    init(pathPrefix: String, pathSuffix: String, id: String) {
+        self.pathPrefix = pathPrefix
         self.pathSuffix = pathSuffix
-        self.path = pathPreffix + pathSuffix
+        self.path = pathPrefix + pathSuffix
         self.id = id
     }
 }
 
 extension NavigationPath {
     
-    init(urlString: String, pathPreffix: String) {
+    init(urlString: String, pathPrefix: String) {
         let components = urlString.components(separatedBy: "id=")
         if let id = components.last {
             self.id = id
         }
         self.path = components.first ?? urlString
-        self.pathPreffix = pathPreffix
-        self.pathSuffix = path.components(separatedBy: pathPreffix).last ?? ""
+        self.pathPrefix = pathPrefix
+        self.pathSuffix = path.components(separatedBy: pathPrefix).last ?? ""
     }
 }

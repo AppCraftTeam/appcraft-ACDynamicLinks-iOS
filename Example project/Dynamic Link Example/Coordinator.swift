@@ -11,11 +11,10 @@ import ACDynamicLink
 class Coordinator {
     
     static func handleNavPath(_ navPath: NavigatablePath?) {
-        let appNavPath = AppPath(navigatablePath: navPath)
-        let id = navPath?.id
+        let appNavPath = AppNavPath(navigatablePath: navPath)
         
-        guard appNavPath != .unknown else { return }
-        switch appNavPath {
+        guard appNavPath.type != .unknown else { return }
+        switch appNavPath.type {
         case .mainScreen:
             // push/present whatever you need
             break
@@ -29,11 +28,12 @@ class Coordinator {
     }
 }
 
-extension AppPath {
+struct AppNavPath {
+    let type: PathType
+    let id: String?
     
     init(navigatablePath: NavigatablePath?) {
-        let pathExtension = AppDeeplinking.main.manager.getPathExtension(for: navigatablePath, among: DynamicLinkType.allCases.map { $0.rawValue }) ?? ""
-        self.type = DynamicLinkType(rawValue: pathExtension) ?? .unknown
+        self.type = PathType(rawValue: navigatablePath?.pathSuffix) ?? .unknown
         self.id = navigatablePath.id
     }
 }

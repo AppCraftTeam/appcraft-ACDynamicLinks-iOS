@@ -10,10 +10,10 @@ import Firebase
 
 struct FBReader: Reader {
     
-    private var pathPreffix: String
+    private var pathPrefix: String
     
-    init(pathPreffix: String) {
-        self.pathPreffix = pathPreffix
+    init(pathPrefix: String) {
+        self.pathPrefix = pathPrefix
     }
     
     func readFromUserActivity(_ activity: NSUserActivity, completion: @escaping PathCompletionHandler) -> Bool {
@@ -39,7 +39,7 @@ private extension FBReader {
     
     func getPath(from url: URL) -> NavigatablePath? {
         let urlString = url.absoluteString
-        let navPath = NavigationPath(urlString: urlString, pathPreffix: pathPreffix)
+        let navPath = NavigationPath(urlString: urlString, pathPrefix: pathPrefix)
         return navPath
     }
 }
