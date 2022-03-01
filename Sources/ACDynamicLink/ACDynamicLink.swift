@@ -3,8 +3,8 @@ import Firebase
 public struct ACDynamicLink: Generator, Reader {
     
     // MARK: - Methods
-    public func generate(path: NavigatablePath, completion: @escaping (URL?) -> Void) {
-        generator.generate(path: path, completion: completion)
+    public func generate(pathSuffix: String, id: String?, completion: @escaping (URL?) -> Void) {
+        generator.generate(pathSuffix: pathSuffix, id: id, completion: completion)
     }
     
     public func readFromURL(_ url: URL, completion: (NavigatablePath?) -> Void) -> Bool {
@@ -14,14 +14,6 @@ public struct ACDynamicLink: Generator, Reader {
     public func readFromUserActivity(_ activity: NSUserActivity, completion: @escaping PathCompletionHandler) -> Bool {
         reader.readFromUserActivity(activity, completion: completion)
     }
-    
-//    public func getPathExtension(for navigatablePath: NavigatablePath, among pathExtensions: [String]) -> String? {
-//        let prefix = generationData.urlStringPrefix
-//        guard let pathExtension = navigatablePath.pathSuffix.components(separatedBy: prefix).last,
-//              let pathExtension = pathExtensions.first(where: { pathExtension == $0 })
-//        else { return nil }
-//        return pathExtension
-//    }
     
     // MARK: - Init
     public init(generationData: GenerationDataProvider) {
