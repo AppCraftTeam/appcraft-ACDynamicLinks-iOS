@@ -34,6 +34,6 @@ extension NavigationPath {
         }
         self.path = components.first ?? urlString
         self.pathPreffix = pathPreffix
-        self.pathSuffix = path.components(separatedBy: pathPreffix).first ?? ""
+        self.pathSuffix = path.components(separatedBy: pathPreffix).last ?? ""
     }
 }
