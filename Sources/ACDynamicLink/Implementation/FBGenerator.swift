@@ -10,7 +10,7 @@ import Firebase
 
 struct FBGenerator: Generator {
     
-    public init(data: GenerationDataProvider) {
+    init(data: GenerationDataProvider) {
         self.data = data
     }
     
