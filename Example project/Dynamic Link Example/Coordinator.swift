@@ -38,3 +38,9 @@ struct AppNavPath {
         self.id = navigatablePath.id
     }
 }
+
+enum PathType: String {
+    case mainScreen
+    case settingsScreen
+    case unknown
+}

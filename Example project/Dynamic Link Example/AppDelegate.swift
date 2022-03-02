@@ -16,6 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        let generationData = GenerationData(urlStringPrefix: "https://www.mywebsite.com/", // fallback URL
+                                            domainURLPrefix: "https://myapp.page.link", // from firebase console
+                                            iOSBundle: Bundle.main.bundleIdentifier ?? "com.myiosapp.isnice",
+                                            appStoreID: "1337133713", // might not work without it
+                                            androidBundle: "com.myandroidapp.isnice") // to provide cross-platform compatibility
+        
         dynamicLink = ACDynamicLink(generationData: generationData)
         return true
     }
