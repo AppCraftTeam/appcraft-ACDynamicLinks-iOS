@@ -109,6 +109,10 @@ func generateLink(path: AppNavPath) {
 }
 ```
 
+## Warning
+If your project has Firebase framework installed via pods, you will face crashes as ACDynamicLink already contains that dependency. 
+Simply delete `Firebase` pod to avoid crashes
+
 ## License
 Distributed under the MIT License.
 
