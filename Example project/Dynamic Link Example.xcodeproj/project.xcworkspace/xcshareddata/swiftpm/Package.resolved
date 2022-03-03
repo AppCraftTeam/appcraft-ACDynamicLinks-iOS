@@ -14,9 +14,9 @@
         "package": "ACDynamicLink",
         "repositoryURL": "https://github.com/AppCraftTeam/appcraft-ACDynamicLinks-iOS",
         "state": {
-          "branch": "develop",
-          "revision": "6587d125ff5284050dde91fefbeb219db305081b",
-          "version": null
+          "branch": null,
+          "revision": "28b55a8f9167537b562a16ad1ba34f57a2e5a7cd",
+          "version": "0.0.2"
         }
       },
       {

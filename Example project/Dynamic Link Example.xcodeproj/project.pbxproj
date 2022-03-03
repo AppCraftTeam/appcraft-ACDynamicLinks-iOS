@@ -13,7 +13,6 @@
 		4EB1163227B66B9D00CC05D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EB1163027B66B9D00CC05D8 /* Main.storyboard */; };
 		4EB1163427B66B9D00CC05D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EB1163327B66B9D00CC05D8 /* Assets.xcassets */; };
 		4EB1163727B66B9D00CC05D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EB1163527B66B9D00CC05D8 /* LaunchScreen.storyboard */; };
-		4EB1163F27B66C1100CC05D8 /* ReadMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB1163E27B66C1100CC05D8 /* ReadMe.swift */; };
 		4EB1164227B66C6A00CC05D8 /* ACDynamicLink in Frameworks */ = {isa = PBXBuildFile; productRef = 4EB1164127B66C6A00CC05D8 /* ACDynamicLink */; };
 		4EB1164627B6711F00CC05D8 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB1164527B6711F00CC05D8 /* Coordinator.swift */; };
 /* End PBXBuildFile section */
@@ -27,7 +26,6 @@
 		4EB1163327B66B9D00CC05D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4EB1163627B66B9D00CC05D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4EB1163827B66B9D00CC05D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4EB1163E27B66C1100CC05D8 /* ReadMe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadMe.swift; sourceTree = "<group>"; };
 		4EB1164527B6711F00CC05D8 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,7 +62,6 @@
 			children = (
 				4EB1162A27B66B9D00CC05D8 /* AppDelegate.swift */,
 				4EB1162E27B66B9D00CC05D8 /* ViewController.swift */,
-				4EB1163E27B66C1100CC05D8 /* ReadMe.swift */,
 				4EB1164527B6711F00CC05D8 /* Coordinator.swift */,
 				4EB1163027B66B9D00CC05D8 /* Main.storyboard */,
 				4EB1163527B66B9D00CC05D8 /* LaunchScreen.storyboard */,
@@ -153,7 +150,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EB1163F27B66C1100CC05D8 /* ReadMe.swift in Sources */,
 				4EB1164627B6711F00CC05D8 /* Coordinator.swift in Sources */,
 				4EB1162F27B66B9D00CC05D8 /* ViewController.swift in Sources */,
 				4EB1162B27B66B9D00CC05D8 /* AppDelegate.swift in Sources */,
@@ -382,8 +378,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AppCraftTeam/appcraft-ACDynamicLinks-iOS";
 			requirement = {
-				branch = feature/improvements;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
