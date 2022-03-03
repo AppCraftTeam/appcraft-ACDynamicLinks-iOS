@@ -109,9 +109,13 @@ func generateLink(path: AppNavPath) {
 }
 ```
 
+There is an [Example project](/Example project) to help you figure it all out.
+
 ## Warning
-If your project has Firebase framework installed via pods, you will face crashes as ACDynamicLink already contains that dependency. 
-Simply delete `Firebase` pod to avoid crashes
+Do not forget to set up [Firebase Console](https://console.firebase.google.com/) and add GoogleService-Info.plist to your project
+
+If your project already has Firebase framework installed, you will face crashes as ACDynamicLink already contains that dependency. 
+Remove the original dependency to avoid crashes.
 
 ## License
 Distributed under the MIT License.
