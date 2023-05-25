@@ -14,7 +14,7 @@ let package = Package(
             targets: ["ACDynamicLink"]),
     ],
     dependencies: [
-        .package(name: "Firebase", url: "https://github.com/firebase/firebase-ios-sdk.git", .upToNextMinor(from: "8.0.0"))
+        .package(name: "Firebase", url: "https://github.com/firebase/firebase-ios-sdk.git", .upToNextMinor(from: "10.0.0"))
     ],
     targets: [
         .target(
